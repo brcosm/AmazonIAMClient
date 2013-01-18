@@ -8,7 +8,7 @@
 
 #import "TGAmazonIAMClient.h"
 #import "AFKissXMLRequestOperation.h"
-#import "TGAmazonV4Signer.h"
+#import "NSMutableURLRequest+TGAmazonSignature.h"
 
 typedef void (^SuccessBlock)(AFHTTPRequestOperation *, id);
 typedef void (^FailureBlock)(AFHTTPRequestOperation *, NSError *);
