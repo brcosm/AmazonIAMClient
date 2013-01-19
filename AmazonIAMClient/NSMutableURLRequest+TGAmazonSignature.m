@@ -117,7 +117,8 @@ static NSString * const kTGAmazonV4SignatureDesc = @"AWS4-HMAC-SHA256";
                 return [a compare:b options:NSLiteralSearch];
             }];
             for (NSString *val in vals) {
-                [newString appendFormat:@"%@=%@", [key tg_urlEncodedString] , [val tg_urlEncodedString]];
+                // AFNetworking URL encoding does not encode commas
+                [newString appendFormat:@"%@=%@", key , [val stringByReplacingOccurrencesOfString:@"," withString:@"%2C"]];
                 if (val != [vals lastObject]) {
                     [newString appendFormat:@"&"];
                 }
